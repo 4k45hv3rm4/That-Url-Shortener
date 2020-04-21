@@ -1,0 +1,18 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <div class="container">
+        <h1> Already Exists</h1>
+        <p>Your URL   : <a href="{{ obj.url }}" class=" bnt-link text-decoration-none text-info">{{ obj.url }}</a> </p>
+        <!-- {% if obj.clickevent %}
+            <p>COUNT : {{ obj.clickevent.count }}</p>
+        {% endif %} -->
+            <div >
+
+            <a class="text-info text-decoration-none"href="{{ obj.get_short_url }}">{{ obj.get_short_url }}</a>
+            </div>
+
+        <br><br>
+        <a href="{% url 'HomeView' %}" class="btn btn-primary"> Create New</a>
+    </div>
+
+{% endblock content %}
