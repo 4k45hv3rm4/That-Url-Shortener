@@ -45,10 +45,8 @@ class HomeView(View):
 class UrlRedirectView(View):
 
     def get(self, request, *args, **kwargs):
-        print(args, kwargs)
         shortcode = kwargs.get('shortcode')
         qs = ShortURL.objects.filter(shortcode__iexact = shortcode)
-        print(qs)
         obj = get_object_or_404(ShortURL, shortcode=shortcode)
         print(ClickEvent.objects.create_event(obj))
         return HttpResponseRedirect(obj.url)
