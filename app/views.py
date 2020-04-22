@@ -24,7 +24,7 @@ class HomeView(View):
         "title":"Submit URL",
         "form": form
         }
-        print(form)
+
         template = 'app/home.html'
 
         if form.is_valid():
@@ -48,5 +48,4 @@ class UrlRedirectView(View):
         shortcode = kwargs.get('shortcode')
         qs = ShortURL.objects.filter(shortcode__iexact = shortcode)
         obj = get_object_or_404(ShortURL, shortcode=shortcode)
-        print(ClickEvent.objects.create_event(obj))
         return HttpResponseRedirect(obj.url)
